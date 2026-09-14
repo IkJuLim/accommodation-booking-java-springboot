@@ -23,7 +23,7 @@ public class UserService {
      * @return
      */
     @Transactional
-    public User signUpMember(UserRequestDTO.UserSignUpDto userSignUpDto) {
+    public User signUp(UserRequestDTO.UserSignUpDto userSignUpDto) {
         User user = User.builder()
                 .nickname(userSignUpDto.getNickname())
                 .email(userSignUpDto.getEmail())
