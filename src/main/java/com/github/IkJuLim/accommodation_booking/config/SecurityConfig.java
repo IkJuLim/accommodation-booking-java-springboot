@@ -16,16 +16,16 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/login", "/api/join").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/login", "/api/v1/join", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-resources/**").permitAll()
+                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/api/login")
-                        .failureUrl("/api/login?error=true")
+                        .loginPage("/api/v1/login")
+                        .failureUrl("/api/v1/login?error=true")
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/api/logout")
+                        .logoutUrl("/api/v1/logout")
                         .invalidateHttpSession(true)
                 )
                 .exceptionHandling(exception -> exception
