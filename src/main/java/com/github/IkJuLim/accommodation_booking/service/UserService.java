@@ -7,6 +7,7 @@ import com.github.IkJuLim.accommodation_booking.exception.handler.MemberExceptio
 import com.github.IkJuLim.accommodation_booking.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * @param userSignUpDto
@@ -27,6 +29,7 @@ public class UserService {
         User user = User.builder()
                 .nickname(userSignUpDto.getNickname())
                 .email(userSignUpDto.getEmail())
+                .password(passwordEncoder.encode(userSignUpDto.getPassword()))
                 .status(1)
                 .build();
         if(userRepository.existsByEmail(user.getEmail())){
