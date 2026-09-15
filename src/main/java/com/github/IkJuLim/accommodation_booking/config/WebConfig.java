@@ -33,7 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void configurePathMatch(PathMatchConfigurer configurer) {
         // 공통으로 "/api/v{version}" 접두사 적용 (Swagger API 제외)
         configurer.addPathPrefix(
-                "/api/v{version:(?:" + String.join("|", supportedVersions) + "}",
+                "/api/v{version:(?:" + String.join("|", supportedVersions) + ")}",
                 HandlerTypePredicate.forAnnotation(RestController.class)
                         .and(HandlerTypePredicate.forBasePackage("org.springdoc").negate())
         );

@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping(version = "1")
 public class UserController {
 
     private final UserService userService;
 
     @PostMapping("/signUp")
     public ApiResponse<UserResponseDTO.UserSignUpDto> joinMember(@RequestBody UserRequestDTO.UserSignUpDto joinMemberDTO){
-        User member = userService.signUp(joinMemberDTO);
+        User user = userService.signUp(joinMemberDTO);
 
         return ApiResponse.of(SuccessStatus.USER_JOIN, UserResponseDTO.UserSignUpDto.builder()
-                .id(member.getId())
-                .created_at(member.getCreatedAt())
+                .id(user.getId())
+                .created_at(user.getCreatedAt())
                 .build());
     }
 }

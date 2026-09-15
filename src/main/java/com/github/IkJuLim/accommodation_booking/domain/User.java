@@ -13,6 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,7 @@ public class User extends BaseEntity {
     private String nickname;
 
     @Setter
-    @Column(columnDefinition = "TINYINT(1)")
+    @Column(columnDefinition = "SMALLINT")
     @ColumnDefault("1")
     private int status; //  0: 비활성화, 1: 활성
 }

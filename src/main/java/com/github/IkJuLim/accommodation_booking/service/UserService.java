@@ -21,8 +21,8 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     /**
-     * @param userSignUpDto
-     * @return
+     * @param userSignUpDto UserRequestDTO.UserSignUpDto
+     * @return User
      */
     @Transactional
     public User signUp(UserRequestDTO.UserSignUpDto userSignUpDto) {
