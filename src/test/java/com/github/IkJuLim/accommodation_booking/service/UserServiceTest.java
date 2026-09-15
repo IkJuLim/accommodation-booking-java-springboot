@@ -3,6 +3,7 @@ package com.github.IkJuLim.accommodation_booking.service;
 import com.github.IkJuLim.accommodation_booking.domain.User;
 import com.github.IkJuLim.accommodation_booking.domain.enums.UserRoll;
 import com.github.IkJuLim.accommodation_booking.dto.UserRequestDTO;
+import com.github.IkJuLim.accommodation_booking.exception.handler.MemberExceptionHandler;
 import com.github.IkJuLim.accommodation_booking.repository.UserRepository;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -137,8 +138,7 @@ class UserServiceTest {
 
         // when & then
         Assertions.assertThatThrownBy(() -> userService.signUp(adminSignUpDto))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("ADMIN 권한으로는 회원가입할 수 없습니다");
+                .isInstanceOf(MemberExceptionHandler.class);
 
         // DB 저장 로직이 호출되지 않았는지 검증
         then(userRepository).should(never()).save(any());
