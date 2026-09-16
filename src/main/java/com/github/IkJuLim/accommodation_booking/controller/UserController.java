@@ -20,8 +20,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signUp")
-    public ApiResponse<UserResponseDTO.UserSignUpDto> joinMember(@RequestBody UserRequestDTO.UserSignUpDto joinMemberDTO){
-        User user = userService.signUp(joinMemberDTO);
+    public ApiResponse<UserResponseDTO.UserSignUpDto> signUp(@RequestBody UserRequestDTO.UserSignUpDto joinUserDTO){
+        User user = userService.signUp(joinUserDTO);
 
         return ApiResponse.of(SuccessStatus.USER_JOIN, UserResponseDTO.UserSignUpDto.builder()
                 .id(user.getId())
