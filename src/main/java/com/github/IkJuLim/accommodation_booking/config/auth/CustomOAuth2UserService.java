@@ -1,4 +1,4 @@
-package com.github.IkJuLim.accommodation_booking.service;
+package com.github.IkJuLim.accommodation_booking.config.auth;
 
 import com.github.IkJuLim.accommodation_booking.dto.auth.GoogleResponse;
 import com.github.IkJuLim.accommodation_booking.dto.auth.KakaoResponse;

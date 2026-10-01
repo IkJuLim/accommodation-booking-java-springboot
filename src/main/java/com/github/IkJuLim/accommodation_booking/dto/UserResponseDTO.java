@@ -2,6 +2,7 @@ package com.github.IkJuLim.accommodation_booking.dto;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -16,5 +17,16 @@ public class UserResponseDTO {
 
         //created_at
         private LocalDateTime created_at;
+    }
+
+    @Getter
+    @Setter
+    public static class OauthUserDTO {
+
+        private String role;
+
+        private String name;
+
+        private String username;
     }
 }
