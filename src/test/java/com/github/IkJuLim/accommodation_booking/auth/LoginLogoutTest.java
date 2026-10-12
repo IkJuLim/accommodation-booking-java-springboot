@@ -29,10 +29,9 @@ public class LoginLogoutTest {
     @Test
     @DisplayName("로그인 성공")
     void loginTest() throws Exception {
-        UserRequestDTO.UserLogInDto userLoginDto = UserRequestDTO.UserLogInDto.builder()
-                .email("test@gmail.com")
-                .password("1234qwer!!")
-                .build();
+        UserRequestDTO.UserLogInDto userLoginDto = new UserRequestDTO.UserLogInDto();
+        userLoginDto.setEmail("test@gmail.com");
+        userLoginDto.setPassword("1234qwer!!");
 
         mvc.perform(post("/api/v1/login")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -45,10 +44,9 @@ public class LoginLogoutTest {
     @Test
     @DisplayName("로그인 실패 - 이메일")
     void loginTestFailEmail() throws Exception {
-        UserRequestDTO.UserLogInDto userLoginDto = UserRequestDTO.UserLogInDto.builder()
-                .email("test@gmail.com")
-                .password("1234qwer!!")
-                .build();
+        UserRequestDTO.UserLogInDto userLoginDto = new UserRequestDTO.UserLogInDto();
+        userLoginDto.setEmail("test@gmail.com");
+        userLoginDto.setPassword("1234qwer!!");
 
         mvc.perform(post("/api/v1/login")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -61,10 +59,9 @@ public class LoginLogoutTest {
     @Test
     @DisplayName("로그인 실패 - 비밀번호")
     void loginTestFailPassword() throws Exception {
-        UserRequestDTO.UserLogInDto userLoginDto = UserRequestDTO.UserLogInDto.builder()
-                .email("test@gmail.com")
-                .password("1234qwer!!")
-                .build();
+        UserRequestDTO.UserLogInDto userLoginDto = new UserRequestDTO.UserLogInDto();
+        userLoginDto.setEmail("test@gmail.com");
+        userLoginDto.setPassword("1234qwer!!");
 
         mvc.perform(post("/api/v1/login")
                         .contentType(MediaType.APPLICATION_JSON)

@@ -1,5 +1,5 @@
 package com.github.IkJuLim.accommodation_booking.domain.enums;
 
-public enum UserRoll {
+public enum UserRole {
     GUEST, HOST, ADMIN
 }

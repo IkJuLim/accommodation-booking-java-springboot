@@ -30,3 +30,29 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-name: ${GOOGLE_CLIENT_NAME}
+            client-id: ${GOOGLE_ID}
+            client-secret: ${GOOGLE_SECRET}
+            redirect-uri: ${GOOGLE_REDIRECT_URL}
+            authorization-grant-type: authorization_code
+            scope: openid, profile, email
+#          kakao:
+#            client-name: ${KAKAO_CLIENT_NAME}
+#            client-id: ${KAKAO_ID}
+#            client-secret: ${KAKAO_SECRET}
+#            redirect-uri: ${KAKAO_ID}
+#            authorization-grant-type: authorization_code
+#            scope: openid, profile, email
+
+        provider:
+#          kakao:
+#            authorization-uri: https://kauth.kakao.com/oauth/authorize
+#            token-uri: https://kauth.kakao.com/oauth/token
+#            user-info-uri: https://kapi.kakao.com/v1/oidc/userinfo
+#            user-name-attribute: sub

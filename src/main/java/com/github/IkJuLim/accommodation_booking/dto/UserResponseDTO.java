@@ -19,13 +19,14 @@ public class UserResponseDTO {
         private LocalDateTime created_at;
     }
 
+    @Builder
     @Getter
     @Setter
     public static class OauthUserDTO {
 
-        private String role;
+        private String email;
 
-        private String name;
+        private String role;
 
         private String username;
     }

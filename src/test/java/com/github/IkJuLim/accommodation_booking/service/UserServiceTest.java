@@ -1,7 +1,7 @@
 package com.github.IkJuLim.accommodation_booking.service;
 
 import com.github.IkJuLim.accommodation_booking.domain.User;
-import com.github.IkJuLim.accommodation_booking.domain.enums.UserRoll;
+import com.github.IkJuLim.accommodation_booking.domain.enums.UserRole;
 import com.github.IkJuLim.accommodation_booking.dto.UserRequestDTO;
 import com.github.IkJuLim.accommodation_booking.exception.handler.UserExceptionHandler;
 import com.github.IkJuLim.accommodation_booking.repository.UserRepository;
@@ -53,19 +53,18 @@ class UserServiceTest {
     @Transactional
     void userSignUpTest() {
         // given
-        UserRequestDTO.UserSignUpDto userSignUpDto = UserRequestDTO.UserSignUpDto.builder()
-                .email(UUID.randomUUID() + "@gmail.com")
-                .password("1234")
-                .userRoll(UserRoll.GUEST)
-                .nickname("Test1")
-                .build();
+        UserRequestDTO.UserSignUpDto userSignUpDto = new UserRequestDTO.UserSignUpDto();
+        userSignUpDto.setEmail(UUID.randomUUID() + "@gmail.com");
+        userSignUpDto.setPassword("1234");
+        userSignUpDto.setUserRole(UserRole.GUEST);
+        userSignUpDto.setUsername("Test1");
 
         User user = User.builder()
                 .id(1L)
                 .email(userSignUpDto.getEmail())
                 .password("encoded_password")
-                .userRoll(userSignUpDto.getUserRoll())
-                .nickname(userSignUpDto.getNickname())
+                .userRole(userSignUpDto.getUserRole())
+                .username(userSignUpDto.getUsername())
                 .build();
 
         given(passwordEncoder.encode(any())).willReturn("encoded_password");
@@ -84,13 +83,11 @@ class UserServiceTest {
         // given
         String invalidEmail = UUID.randomUUID().toString(); // "@domain.com" 형식이 빠진 올바르지 않은 이메일
 
-        UserRequestDTO.UserSignUpDto userSignUpDto = UserRequestDTO.UserSignUpDto.builder()
-                .email(invalidEmail)
-                .password("1234")
-                .userRoll(UserRoll.GUEST)
-                .nickname("Test1")
-                .build();
-
+        UserRequestDTO.UserSignUpDto userSignUpDto = new UserRequestDTO.UserSignUpDto();
+        userSignUpDto.setEmail(invalidEmail);
+        userSignUpDto.setPassword("1234");
+        userSignUpDto.setUserRole(UserRole.GUEST);
+        userSignUpDto.setUsername("Test1");
         // when
         Set<ConstraintViolation<UserRequestDTO.UserSignUpDto>> violations = validator.validate(userSignUpDto);
 
@@ -103,16 +100,15 @@ class UserServiceTest {
 
     @Test
     @DisplayName("회원 서비스 SignUp 실패 - 닉네임에 특수문자 포함 불가")
-    void userSignUpTest_Fail_NicknameSpecialCharacters() {
+    void userSignUpTest_Fail_UsernameSpecialCharacters() {
         // given
-        String invalidNickname = "Test@User!"; // 특수문자 포함
+        String invalidUsername = "Test@User!"; // 특수문자 포함
 
-        UserRequestDTO.UserSignUpDto userSignUpDto = UserRequestDTO.UserSignUpDto.builder()
-                .email(UUID.randomUUID() + "@gmail.com")
-                .password("password123")
-                .userRoll(UserRoll.GUEST)
-                .nickname(invalidNickname)
-                .build();
+        UserRequestDTO.UserSignUpDto userSignUpDto = new UserRequestDTO.UserSignUpDto();
+        userSignUpDto.setEmail(UUID.randomUUID() + "@gmail.com");
+        userSignUpDto.setPassword("1234");
+        userSignUpDto.setUserRole(UserRole.GUEST);
+        userSignUpDto.setUsername(invalidUsername);
 
         // when
         Set<ConstraintViolation<UserRequestDTO.UserSignUpDto>> violations = validator.validate(userSignUpDto);
@@ -121,19 +117,18 @@ class UserServiceTest {
         Assertions.assertThat(violations).isNotEmpty();
         Assertions.assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString())
-                .contains("nickname");
+                .contains("username");
     }
 
     @Test
     @DisplayName("회원 서비스 SignUp 실패 - ADMIN Role 가입 불가 예외 발생")
     void userSignUpTest_Fail_AdminRoleNotAllowed() {
         // given
-        UserRequestDTO.UserSignUpDto adminSignUpDto = UserRequestDTO.UserSignUpDto.builder()
-                .email(UUID.randomUUID() + "@gmail.com")
-                .password("password123")
-                .userRoll(UserRoll.ADMIN)
-                .nickname("AdminUser")
-                .build();
+        UserRequestDTO.UserSignUpDto adminSignUpDto = new UserRequestDTO.UserSignUpDto();
+        adminSignUpDto.setEmail(UUID.randomUUID() + "@gmail.com");
+        adminSignUpDto.setPassword("password123");
+        adminSignUpDto.setUserRole(UserRole.ADMIN);
+        adminSignUpDto.setUsername("AdminUser");
 
         // when & then
         Assertions.assertThatThrownBy(() -> userService.signUp(adminSignUpDto))

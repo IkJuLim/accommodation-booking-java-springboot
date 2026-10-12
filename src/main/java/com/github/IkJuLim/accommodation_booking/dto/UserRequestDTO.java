@@ -1,17 +1,19 @@
 package com.github.IkJuLim.accommodation_booking.dto;
 
-import com.github.IkJuLim.accommodation_booking.domain.enums.UserRoll;
+import com.github.IkJuLim.accommodation_booking.domain.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 public class UserRequestDTO {
 
-    @Builder
     @Getter
+    @Setter
+    @NoArgsConstructor
     public static class UserSignUpDto {
 
         //email
@@ -31,17 +33,18 @@ public class UserRequestDTO {
          * 사용 가능: GUEST, HOST
          * 사용 불가: ADMIN
          */
-        private UserRoll userRoll;
+        private UserRole userRole;
 
         //이름
         @NotBlank(message = "이름을 입력해주세요")
         @Size(min = 2, message = "사용자 이름이 너무 짧습니다.")
         @Pattern(regexp = "^[가-힣A-Za-z0-9]+$", message = "사용자 이름은 한글, 알파벳, 숫자만 입력해주세요.")
-        private String nickname;
+        private String username;
     }
 
-    @Builder
     @Getter
+    @Setter
+    @NoArgsConstructor
     public static class UserLogInDto {
 
         //email
