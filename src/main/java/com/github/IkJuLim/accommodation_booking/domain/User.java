@@ -1,7 +1,7 @@
 package com.github.IkJuLim.accommodation_booking.domain;
 
 import com.github.IkJuLim.accommodation_booking.domain.common.BaseEntity;
-import com.github.IkJuLim.accommodation_booking.domain.enums.UserRoll;
+import com.github.IkJuLim.accommodation_booking.domain.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -23,10 +23,9 @@ public class User extends BaseEntity {
 
     private String password;
 
-    private UserRoll userRoll;
+    private UserRole userRole;
 
-    @Setter
-    private String nickname;
+    private String username;
 
     @Setter
     @Column(columnDefinition = "SMALLINT")

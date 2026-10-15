@@ -1,0 +1,47 @@
+package com.github.IkJuLim.accommodation_booking.config.auth;
+
+import com.github.IkJuLim.accommodation_booking.dto.UserResponseDTO;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+public class CustomOAuth2User implements OAuth2User {
+
+    private final UserResponseDTO.OauthUserDTO userDTO;
+
+    public CustomOAuth2User(UserResponseDTO.OauthUserDTO userDTO) {
+
+        this.userDTO = userDTO;
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return null;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+
+        collection.add(new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                return userDTO.getRole();
+            }
+        });
+
+        return collection;
+    }
+
+    @Override
+    public String getName() {
+        return userDTO.getUsername();
+    }
+
+    public String getUsername() {
+        return userDTO.getUsername();
+    }
+}

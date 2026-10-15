@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-15T04:36:47.382Z" hostname="IkJuui-MacBookPro-7.local" time="2.279">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests" time="0.214"/>
+  <system-out><![CDATA[13:36:47.443 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests]: AccommodationBookingApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:36:47.477 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.github.IkJuLim.accommodation_booking.AccommodationBookingApplication for test class com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests
+13:36:47.505 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests]: AccommodationBookingApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:36:47.506 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.github.IkJuLim.accommodation_booking.AccommodationBookingApplication for test class com.github.IkJuLim.accommodation_booking.AccommodationBookingApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-10-15T13:36:47.637+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] I.a.AccommodationBookingApplicationTests : Starting AccommodationBookingApplicationTests using Java 17.0.14 with PID 97233 (started by ikjulim in /Users/ikjulim/Downloads/accommodation-booking-java-springboot)
+2026-10-15T13:36:47.638+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] I.a.AccommodationBookingApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-10-15T13:36:47.856+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-15T13:36:47.856+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-15T13:36:47.866+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-10-15T13:36:47.953+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-15T13:36:47.953+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-15T13:36:48.000+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
+2026-10-15T13:36:48.016+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-10-15T13:36:48.016+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-10-15T13:36:48.020+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.github.IkJuLim.accommodation_booking.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-10-15T13:36:48.020+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-10-15T13:36:48.183+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-15T13:36:48.211+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-15T13:36:48.358+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-15T13:36:48.371+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-15T13:36:48.447+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e36d508
+2026-10-15T13:36:48.447+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-15T13:36:48.483+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-15T13:36:48.802+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table if exists users 
+       alter column status set data type SMALLINT
+2026-10-15T13:36:48.840+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-15T13:36:48.873+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-15T13:36:48.995+09:00  WARN 97233 --- [accommodation-booking] [    Test worker] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-10-15T13:36:49.177+09:00  WARN 97233 --- [accommodation-booking] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-15T13:36:49.441+09:00  INFO 97233 --- [accommodation-booking] [    Test worker] I.a.AccommodationBookingApplicationTests : Started AccommodationBookingApplicationTests in 1.907 seconds (process running for 2.382)
+2026-10-15T13:36:49.443+09:00  WARN 97233 --- [accommodation-booking] [    Test worker] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-15T13:36:49.443+09:00  WARN 97233 --- [accommodation-booking] [    Test worker] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

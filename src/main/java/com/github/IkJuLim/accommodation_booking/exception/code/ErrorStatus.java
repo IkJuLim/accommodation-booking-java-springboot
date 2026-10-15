@@ -16,8 +16,8 @@ public enum ErrorStatus implements BaseErrorCode {
 
     // User 에러
     USER_NOT_FOUND(HttpStatus.BAD_REQUEST, "USER4001", "사용자가 존재하지 않습니다."),
-    USER_INVALID_ROLL(HttpStatus.FORBIDDEN, "USER4002", "금지된 요청입니다.")
-    ;
+    USER_INVALID_ROLE(HttpStatus.FORBIDDEN, "USER4002", "금지된 요청입니다."),
+    USER_ALREADY_EXIST(HttpStatus.FORBIDDEN, "USER4003", "이미 존재하는 사용자 입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
