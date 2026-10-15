@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.IkJuLim.accommodation_booking.auth.CustomOAuth2UserServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-15T04:36:49.663Z" hostname="IkJuui-MacBookPro-7.local" time="0.137">
+  <properties/>
+  <testcase name="OAuth2 가입 성공 - 신규 유저면 저장된다" classname="com.github.IkJuLim.accommodation_booking.auth.CustomOAuth2UserServiceTest" time="0.134"/>
+  <testcase name="OAuth2 가입 실패 - 이미 가입된 유저면 예외가 발생하고 저장되지 않는다" classname="com.github.IkJuLim.accommodation_booking.auth.CustomOAuth2UserServiceTest" time="0.002"/>
+  <system-out><![CDATA[Name: [1234567890], Granted Authorities: [[OAUTH2_USER]], User Attributes: [{sub=1234567890, email=newuser@gmail.com}]
+Name: [1234567890], Granted Authorities: [[OAUTH2_USER]], User Attributes: [{sub=1234567890, email=existing@gmail.com}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

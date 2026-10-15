@@ -44,7 +44,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         }
 
         String username = oAuth2Response.getProvider() + " " + oAuth2Response.getProviderId();
-        userRepository.findByUsername(username).orElseThrow(() -> new UserExceptionHandler(ErrorStatus.USER_ALREADY_EXIST));
+        if (userRepository.findByUsername(username).isPresent()) {
+            throw new UserExceptionHandler(ErrorStatus.USER_ALREADY_EXIST);
+        }
 
         User user = User.builder()
                 .email(oAuth2Response.getEmail())
