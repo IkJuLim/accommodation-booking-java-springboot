@@ -28,20 +28,20 @@ public class UserService {
     @Transactional
     public User signUp(UserRequestDTO.UserSignUpDto userSignUpDto) {
         if (userSignUpDto.getUserRole().equals(UserRole.ADMIN)) {
-            throw new UserExceptionHandler(ErrorStatus.USER_INVALID_ROLL);
+            throw new UserExceptionHandler(ErrorStatus.USER_INVALID_ROLE);
         }
 
-        User user = User.builder()
-                .email(userSignUpDto.getEmail())
-                .password(passwordEncoder.encode(userSignUpDto.getPassword()))
-                .username(userSignUpDto.getUsername())
-                .userRole(userSignUpDto.getUserRole())
-                .status(1)
-                .build();
-
-        if (userRepository.existsByEmail(user.getEmail())) {
-            return userRepository.findByEmail(user.getEmail()).orElseThrow(() -> new UserExceptionHandler(ErrorStatus.USER_NOT_FOUND));
+        if (userRepository.existsByEmail(userSignUpDto.getEmail())) {
+            return userRepository.findByEmail(userSignUpDto.getEmail()).orElseThrow(() -> new UserExceptionHandler(ErrorStatus.USER_NOT_FOUND));
         } else {
+            User user = User.builder()
+                    .email(userSignUpDto.getEmail())
+                    .password(passwordEncoder.encode(userSignUpDto.getPassword()))
+                    .username(userSignUpDto.getUsername())
+                    .userRole(userSignUpDto.getUserRole())
+                    .status(1)
+                    .build();
+
             return userRepository.save(user);
         }
     }
